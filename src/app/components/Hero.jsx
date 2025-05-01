@@ -22,7 +22,8 @@ function Card({ item }) {
   return (
     <div className="bg-white rounded-3xl shadow-xl overflow-hidden pt-4 mt-8 transition hover:scale-[1.01] duration-300">
       <div className="flex justify-center">
-        <div className="relative w-full max-w-[95%] h-[300px]"> {/* фиксированная высота */}
+        <div className="relative w-full max-w-[95%] h-[300px]">
+          {/* фиксированная высота */}
           <Image
             src={item.img}
             alt={`Фото ${item.name}`}
@@ -72,9 +73,9 @@ function Hero() {
           </div>
 
           {/* Right Block */}
-          <div className="lg:w-1/3">
+          <div className="lg:w-1/3 mt-20">
             <Image src={img650} alt="Рекомендации" className="w-full  rounded-xl" />
-            <h2 className="text-3xl font-bold mb-4 ml-2">Рекомендуемые площадки</h2>
+            <h2 className="text-xl font-bold mb-4 ml-2">Рекомендуемые площадки</h2>
             {recommendation.map((item, index) => (
               <Card key={index} item={item} />
             ))}
