@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'next/link';
+
 import Image from 'next/image'
 import place1 from "../../../assents/places1.png";
 import place2 from "../../../assents/places2.png";
@@ -6,9 +8,15 @@ import place3 from "../../../assents/places3.png";
 import place4 from "../../../assents/places4.png";
 import img650 from "../../../assents/image 650.png";
 
+
+
+
+
+
+
 const information = [
   { name: "Дворец международных форумов Узбекистан", img: place1 },
-  { name: "HUMO Arena", img: place2 },
+  { name: " HUMO Arena " , img: place2 },
   { name: "Дворец Дружбы Народов", img: place3 },
   { name: "Дворец Творчества Молодежи", img: place4 },
 ];
@@ -45,6 +53,7 @@ function Card({ item }) {
           </span>
         </li>
       </ul>
+      
       <div className="px-5 pb-6">
         <button className="w-full mt-4 px-6 py-3 bg-green-600 text-white font-semibold rounded-3xl hover:bg-green-700 transition duration-300">
           Купить билеты
