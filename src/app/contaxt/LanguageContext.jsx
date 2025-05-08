@@ -1,15 +1,21 @@
-'use client'
-import { createContext, useContext, useState } from 'react'
+// src/context/LanguageContext.jsx
+"use client";  // Добавляем эту строку
 
-const LanguageContext = createContext()
+import React, { createContext, useContext, useState } from "react";
+import { translations } from "../utils/translations";
+
+const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [lang, setLang] = useState('ru')
+  const [language, setLanguage] = useState("ru");
+
+  const t = (key) => translations[language][key] || key;
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
     </LanguageContext.Provider>
-  )
-}
+  );
+};
 
-export const useLanguage = () => useContext(LanguageContext)
+export const useLanguage = () => useContext(LanguageContext);
