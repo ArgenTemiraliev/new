@@ -1,5 +1,7 @@
 export const translations = {
   ru: {
+    rus: "русский",
+    uzb:"узбекский",
     places: "Места",
     recommended: "Рекомендуемые площадки",
     seats: "Количество мест",
@@ -18,8 +20,20 @@ export const translations = {
     humoDescription2: "Арена вмещает до 12 500 зрителей и оборудована по международным стандартам: просторный трансформируемый зал, ледовое покрытие, трибуны с отличной видимостью, комфортные раздевалки, VIP-зоны, технические и вспомогательные помещения.",
     humoDescription3: "Humo Arena отличается удобным расположением и развитой инфраструктурой, что делает её привлекательной для проведения мероприятий как национального, так и международного масштаба. Название арены отсылает к легендарной птице Хумо — символу счастья, свободы и благополучия, что придаёт площадке особое культурное значение и узнаваемость.",
     similarPlaces: "Похожие места",
+    footerDescription: "— самый удобный способ выбрать, как провести cвободное время",
+    footerTicketPurchase: "Покупка билетов на мероприятия для вашего удовольствия.",
+    footerSimpleSystem: "Простая и удобная система,круглосуточная поддержка.",
+    uzbekistanForumPalace: "Дворец международных форумов Узбекистан",
+    humoArena: "HUMO Arena",
+    friendshipPalace: "Дворец Дружбы Народов",
+    youthCreativityPalace: "Дворец Творчества Молодежи",
+    humoArenaTashkent: "HUMO Arena город Ташкент",
+    telefon: "Телефон",
+    mobil:"Мобильный",
   },
   uz: {
+    rus: "ruscha",
+    uzb:"o'zbekcha",
     places: "Joylar",
     recommended: "Tavsiya etilgan joylar",
     seats: "O‘rinlar soni",
@@ -38,6 +52,16 @@ export const translations = {
     humoDescription2: "Arena 12 500 tomoshabinga mo‘ljallangan bo‘lib, xalqaro standartlarga muvofiq jihozlangan: keng transformatsiyalanuvchi zal, muz qoplamasi, a’lo ko‘rinishga ega tribunalar, qulay kiyinish xonalari, VIP zonalar, texnik va yordamchi xonalar mavjud.",
     humoDescription3: "Humo Arena qulay joylashuvi va rivojlangan infratuzilmasi bilan ajralib turadi, bu esa uni milliy hamda xalqaro darajadagi tadbirlarni o‘tkazish uchun jozibador qiladi. Arenaning nomi afsonaviy Humo qushiga ishora qiladi — u baxt, erkinlik va farovonlik timsoli bo‘lib, bu joyga alohida madaniy ahamiyat va tanilganlik bag‘ishlaydi.",
     similarPlaces: "O‘xshash joylar",
+    footerDescription: "— bo'sh vaqtingizni qanday o'tkazishni tanlashning eng qulay usuli",
+    footerTicketPurchase: "Rohatlanishingiz uchun tadbirlarga chipta sotib oling.",
+    footerSimpleSystem: "Oddiy va qulay tizim,24/7 qo'llab-quvvatlash.",
+    uzbekistanForumPalace: "Oʻzbekiston Xalqaro Forumlar Saroyi",
+    humoArena: "HUMO Arena",
+    friendshipPalace: "Doʻstlik Xalqlar Saroyi",
+    youthCreativityPalace: "Yoshlar Ijodiyoti Saroyi",
+    humoArenaTashkent: "HUMO Arena Toshkent shahri",
+    telefon: "Telefon",  
+    mobil:"Mobil",
 
   }
 };

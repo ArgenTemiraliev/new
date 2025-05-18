@@ -28,8 +28,7 @@ export default function Map() {
       <MapContainer
         center={[42.8746, 74.5698]}
         zoom={13}
-        className="w-full h-full z-0"
-      >
+        className="w-full h-full z-0" >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'

@@ -1,6 +1,8 @@
 // src/app/layout.js
-import { LanguageProvider } from "../app/contaxt/LanguageContext";
+import Header from "@/components/header/Header";
+import { LanguageProvider } from "../context/LanguageContext";
 import "./globals.css";
+import Footer from "@/components/footer/Footer";
 
 export const metadata = {
   title: "sxodim",
@@ -13,7 +15,9 @@ export default function Layout({ children }) {
       <body className="antialiased">
         {/* Оборачиваем все дочерние элементы в LanguageProvider для доступа к контексту */}
         <LanguageProvider>
+          <Header/>
           {children}
+          <Footer/>
         </LanguageProvider>
       </body>
     </html>
