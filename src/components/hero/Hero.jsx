@@ -23,8 +23,7 @@ const information = [
 const recommendation = [
   { name: "humoArena", img: place2 },
   { name: "friendshipPalace", img: place3 },
-  { name: "uzbekistanForumPalace" , img: place1 },
-  { name: "youthCreativityPalace", img: place4 },
+ 
 ];
 
 function Hero() {

@@ -13,20 +13,21 @@ import instagram from "../../../assents/Link → Instagram.png";
 import telegram from "../../../assents/Link → telegramFooter.png";
 import facebook from "../../../assents/Link → facebookFooter.png";
 import { numbers } from "../../utils/contacts"
-import {links} from "../../utils/links"
+import { links } from "../../utils/links"
+import group from "../../../assents/Group.png"
 
 
 function Footer() {
     const { t } = useLanguage(); // Получаем функцию перевода
 
     return (
-        <footer className="bg-[#dbe7dd] text-black py-10">
-            <div className="container mx-auto px-6 ">
-                <div className="flex items-center gap-3 mb-6">
+        <footer className="bg-[#dbe7dd] text-black  ">
+            <div className="container mx-auto px-6 bg-[url('/Vector.png')] bg-no-repeat bg-right bg-contain min-h-[300px] p-4 ">
+                <div className="flex items-center gap-3 mb-6 ">
                     <Image src={sxodim} alt="sxodim logo" width={100} height={100} />
                     <p className="text-l text-gray-500">  {t("footerDescription")}</p>
                 </div>
-                <div className="flex flex-col lg:flex-row justify-between gap-10">
+                <div className="flex flex-col lg:flex-row justify-around gap-10 ">
                     <div className="flex-1 flex flex-col justify-between">
                         <div className="w-80 text-sm space-y-2 text-gray-500">
                             <p className="py-6">{t("footerTicketPurchase")}</p>
@@ -59,12 +60,18 @@ function Footer() {
                         <p className="text-xl font-semibold col-span-2 mt-4">{numbers[0].number }</p>
                     </div>
 
+                    
+
+
+
                     {/* Правый блок */}
-                    <div className="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 p-4">
-                        {/* <div className="flex-shrink-0">
-                            <Image src={vektor} alt="QR Phone" width={150} height={150} />
-                        </div> */}
-                        <div className="text-center lg:text-left">
+                    <div className=" flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 min-h-[200px]">
+                        <div className="flex-shrink-0 mb-4 ">
+                            
+                            <Image src={group} alt="QR Phone" width={140} height={140} />
+                            {/* внутри img должень быть qr "appstore" на эту ссылку   */}
+                        </div>
+                        <div className=" text-center lg:text-left">
                             <div className="mb-4">
                                 <h2 className="text-base font-semibold mb-2">{t("appTitle")}</h2>
                             </div>
