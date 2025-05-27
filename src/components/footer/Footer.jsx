@@ -2,6 +2,7 @@
 
 import { useLanguage } from "../../context/LanguageContext"; // Импорт контекста
 import Image from "next/image";
+import QRcode from "../../components/qrcode/Qrcode";
 import sxodim from "../../../assents/sxodim-logo.png";
 import humo from "../../../assents/humo-footer.svg fill.png";
 import uzcard from "../../../assents/uzcard.svg fill.png";
@@ -17,12 +18,13 @@ import { links } from "../../utils/links"
 import group from "../../../assents/Group.png"
 
 
+
 function Footer() {
     const { t } = useLanguage(); // Получаем функцию перевода
 
     return (
         <footer className="bg-[#dbe7dd] text-black  ">
-            <div className="container mx-auto px-6 bg-[url('/Vector.png')] bg-no-repeat bg-right bg-contain min-h-[300px] p-4 ">
+            <div className="container mx-auto p-6 bg-no-repeat bg-[url('/Vector.png')]  bg-right bg-contain">
                 <div className="flex items-center gap-3 mb-6 ">
                     <Image src={sxodim} alt="sxodim logo" width={100} height={100} />
                     <p className="text-l text-gray-500">  {t("footerDescription")}</p>
@@ -66,11 +68,14 @@ function Footer() {
 
                     {/* Правый блок */}
                     <div className=" flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-12 min-h-[200px]">
-                        <div className="flex-shrink-0 mb-4 ">
-                            
-                            <Image src={group} alt="QR Phone" width={140} height={140} />
-                            {/* внутри img должень быть qr "appstore" на эту ссылку   */}
+                    <div className="relative ">
+                        <Image src={group} alt="QR Phone" width={125} height={125}
+                            className=" object-cover"/>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <QRcode value={links.appStore} />
                         </div>
+                        </div>
+
                         <div className=" text-center lg:text-left">
                             <div className="mb-4">
                                 <h2 className="text-base font-semibold mb-2">{t("appTitle")}</h2>

@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header className="bg-[#319E47] py-4">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center flex-wrap gap-4">
+        <div className="flex justify-between items-center flex-wrap gap-2">
           
           {/* Логотип */}
           <div className="flex-shrink-0">

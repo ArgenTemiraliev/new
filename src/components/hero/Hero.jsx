@@ -1,40 +1,39 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "../../context/LanguageContext";
-import place1 from "../../../assents/places1.png";
-import place2 from "../../../assents/places2.png";
-import place3 from "../../../assents/places3.png";
-import place4 from "../../../assents/places4.png";
 import img650 from "../../../assents/image 650.png";
 import Card from "../cards/Cards";
 
-const information = [
-  { name: "uzbekistanForumPalace" , img: place1 },
-  { name: "humoArena", img: place2 },
-  { name: "friendshipPalace", img: place3 },
-  { name: "humoArena", img: place2 },
-  { name: "uzbekistanForumPalace" , img: place1 },
-  { name: "youthCreativityPalace", img: place4 },
-
-];
-
-const recommendation = [
-  { name: "humoArena", img: place2 },
-  { name: "friendshipPalace", img: place3 },
- 
-];
-
 function Hero() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [venues, setVenues] = useState([]);
+  const [recommendation, setRecommendation] = useState([]);
   const [visibleCount, setVisibleCount] = useState(4);
 
+  useEffect(() => {
+    fetch(`https://cp.sxodim.uz/api/venues?page=1&limit=20&lang=${language}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        
+        const allVenues = data?.data || [];
+        setVenues(allVenues);
+
+        const recommendedVenues = allVenues.slice(0, 2);
+        setRecommendation(recommendedVenues);
+      })
+      .catch((err) => {
+        console.error("Ошибка при получении площадок:", err);
+      });
+  }, [language]);
+
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 2);
+    setVisibleCount((prev) => prev + 4);
   };
 
-  const isAllShown = visibleCount >= information.length;
+  const isAllShown = visibleCount >= venues.length;
 
   return (
     <div className="hero py-10 bg-gray-50">
@@ -44,16 +43,26 @@ function Hero() {
           <div className="lg:w-2/3">
             <h1 className="text-3xl font-bold mb-6 ml-2">{t("places")}</h1>
 
-            {information.slice(0, visibleCount).map((item, index) => (
-              <Card key={index} item={item} t={t} />
+            {venues.slice(0, visibleCount).map((item, index) => (
+              <Card
+                key={item.id || index}
+                item={{
+                  id: item.id,
+                  name: item.name || "Без названия",
+                  img:item.image_url && item.image_url !== "null" ? item.image_url : "/fallback.png",
+                  address: item.address || "Адрес неизвестен",
+                  capacity: item.capacity || "Нет информации",  
+                }}
+                t={t}
+              />
             ))}
+
 
             {!isAllShown && (
               <div className="flex justify-center mt-8">
                 <button
                   onClick={handleLoadMore}
-                  className="px-6 py-3 bg-green-100 text-green-800 font-semibold rounded-3xl hover:bg-green-600 hover:text-white transition duration-300 shadow-md"
-                >
+                  className="px-6 py-3 bg-green-100 text-green-800 font-semibold rounded-3xl hover:bg-green-600 hover:text-white transition duration-300 shadow-md" >
                   {t("loadMore")}
                 </button>
               </div>
@@ -62,11 +71,26 @@ function Hero() {
 
           {/* Правый блок */}
           <div className="lg:w-1/3 mt-20">
-            <Image src={img650} alt="Рекомендации" className="w-full rounded-xl" />
-            <h2 className="text-lg font-bold mt-5 ">{t("recommended")}</h2>
+            <Image
+              src={img650}
+              alt="Рекомендации"
+              className="w-full rounded-xl"
+            />
+            <h2 className="text-lg font-bold mt-5">{t("recommended")}</h2>
             {recommendation.map((item, index) => (
-              <Card key={index} item={item} t={t} />
-            ))}
+            <Card
+              key={item.id || index}
+                    item={{
+                  id:item.id,
+                name: item.name || "Без названия",
+                img:item.image_url && item.image_url !== "null" ? item.image_url : "/fallback.png",
+                address: item.address || "Адрес неизвестен",
+                capacity: item.capacity || "Нет информации",
+              }}
+              t={t}
+            />
+          ))}
+
           </div>
         </div>
       </div>

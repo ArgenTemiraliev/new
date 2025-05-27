@@ -7,4 +7,6 @@ export const links = {
     instagramSxodimUz: "https://www.instagram.com/sxodim.uzb/",
     telegramSxodimUz: "https://xn--80affa3aj0al.xn--80asehdb/web/#@Sxodim_UZ",
     facebookSxodimUz: "https://www.facebook.com/sxodimuz/",
+    appStoreqr: "https://apps.apple.com/kg/app/sxodim-uz/id6736604058",
+
 }
